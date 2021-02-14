@@ -1,0 +1,55 @@
+
+<!-- saved from url=(0091)https://www.pythonanywhere.com/user/erogers/files/home/erogers/mysite/templates/macros.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></head><body>{% macro create_button(class, a_class, theme, theme_dict) %}
+ <div class="{{class}}"><a class="{{a_class}}" href="https://www.pythonanywhere.com/user/erogers/files/home/erogers/mysite/templates/macros.html#close">{{theme}}</a></div>
+    <div class="modal">
+    <div class="modal-content">
+    <span class="close">×</span>
+    {% set btn_class = "accordion" %}
+    <button class="{{btn_class}}">{{theme}}</button>
+    <ul>
+    {% for sub in theme_dict[theme] %}
+        {% if (sub != '') and (sub != theme) %} <!-- != theme doesn't work -->
+            <li>{{sub}}</li>
+        {% endif %}
+    {% endfor %}
+    </ul>
+    </div> <!-- end modal-content -->
+</div> <!-- end modal -->
+{% endmacro %}
+
+
+<!--- Creates theme buttons and corresponding modals for all phases except Strengths -->
+{% macro create_buttons(class, phase, theme_dict) %}
+{% for theme in theme_dict %}
+    {% set a_class = "btn modal-button " ~ phase %}
+    {% if theme != '' %}
+       {{create_button(class, a_class, theme, theme_dict)}}
+    {% endif %}
+{% endfor %}
+{% endmacro %}
+
+
+<!-- Creates theme buttons and corresponding modals for Strengths items -->
+<!-- TODO: - check for blanks/sub-theme matches -->
+{% macro strengths_themes(theme_dict, values_dict) %}
+{% for theme in theme_dict %}
+    {% set a_class = "btn modal-button Strengths" %}
+    {% if loop.index0 % 2 == 0 %}
+        {% set class = "trunk-item-right" %}
+    {% else %}
+        {% set class = "trunk-item-left" %}
+    {% endif %}
+   {{create_button(class, a_class, theme, theme_dict)}}
+{% endfor %}
+{% endmacro %}
+
+
+<!-- Creates links to other trees -->
+{% macro links_menu(filenames) %}
+{% for filename in filenames %}
+  <a class="link-btn" href="https://www.pythonanywhere.com/forest?tree={{filename}}">{{filename}}</a>
+{% endfor %}
+{% endmacro %}
+
+</body></html>

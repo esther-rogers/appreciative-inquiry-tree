@@ -1,0 +1,98 @@
+
+<!-- saved from url=(0089)https://www.pythonanywhere.com/user/erogers/files/home/erogers/mysite/templates/tree.html -->
+<html lang="en-us"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></head><body>{% from "macros.html" import create_buttons %}
+{% from "macros.html" import strengths_themes %}
+{% from "macros.html" import links_menu %}
+{% from "images.html" import img_gallery %}
+
+
+
+
+
+<title>Appreciative Inquiry Report</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" link="" href="./tree_files/v2.css">
+
+
+
+<div class="blurb-container">
+    <p>{{ blurb }}</p>
+</div>
+
+<div class="container-tree">
+    <div class="sky">
+        <div class="sun"></div>
+        {% set theme_dict = full_dict['Dreams'] %}
+        {{ create_buttons("cloud", "Dreams", theme_dict) }}
+    </div>
+
+    <div class="tree">
+        <div class="branches">
+            {% set theme_dict = full_dict['Design'] %}
+            {{ create_buttons("branch", "Design", theme_dict) }}
+        </div>
+        <div class="trunk">
+            {% set theme_dict = full_dict['Strengths'] %}
+            {{ strengths_themes(theme_dict) }}
+        </div>
+    </div> <!-- end tree -->
+
+    <div class="ground">
+        {% set theme_dict = full_dict['Essence'] %}
+        {{ create_buttons("ground-item", "Essence", theme_dict) }}
+    </div>
+</div> <!-- end container-tree -->
+
+<div class="dreams-text-container">
+    <p></p> <!-- TODO: Add some text here explaining the general purpose of the dreams photos -->
+</div>
+
+<div class="gallery-container">
+    {{ img_gallery(img_url_list) }}
+</div>
+
+<div class="links-container">
+    {{ links_menu(filenames) }}
+</div>
+
+<script>
+var modals = document.getElementsByClassName('modal');
+var btns = document.getElementsByClassName("modal-button");
+var spans = document.getElementsByClassName("close");
+
+// open modal on button click
+for(let i=0;i<btns.length;i++){
+   btns[i].addEventListener("click", function() {
+      modals[i].style.display = "block";
+   });
+}
+
+// close window with x
+for(let i=0;i<spans.length;i++){
+    spans[i].addEventListener("click", function() {
+       modals[i].style.display = "none";
+    });
+ }
+
+// close window with escape
+for(let i=0;i<spans.length;i++){
+window.addEventListener('keydown', function (event) {
+  if (event.key === 'Escape') {
+    modals[i].style.display = 'none'
+  }
+});
+}
+
+// close window by clicking outside it
+window.onclick = function(event) {
+  for (let i=0;i<modals.length;i++) {
+	if(event.target == modals[i]) {
+		modals[i].style.display = "none";
+	}
+  }
+}
+</script>
+
+
+
+</body></html>
