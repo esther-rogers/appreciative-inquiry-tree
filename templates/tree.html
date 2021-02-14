@@ -1,20 +1,18 @@
-
-<!-- saved from url=(0089)https://www.pythonanywhere.com/user/erogers/files/home/erogers/mysite/templates/tree.html -->
-<html lang="en-us"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></head><body>{% from "macros.html" import create_buttons %}
+{% from "macros.html" import create_buttons %}
 {% from "macros.html" import strengths_themes %}
 {% from "macros.html" import links_menu %}
 {% from "images.html" import img_gallery %}
 
+<!DOCTYPE html>
+<html lang="en-us">
 
-
-
-
+<head>
 <title>Appreciative Inquiry Report</title>
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<link rel="stylesheet" link="" href="./tree_files/v2.css">
+<link rel="stylesheet" link href="/static/css/v2.css">
+</head>
 
-
-
+<body>
 <div class="blurb-container">
     <p>{{ blurb }}</p>
 </div>
@@ -93,6 +91,4 @@ window.onclick = function(event) {
 }
 </script>
 
-
-
-</body></html>
+</body>
