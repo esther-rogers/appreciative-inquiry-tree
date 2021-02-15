@@ -2,12 +2,11 @@ from flask import Flask, render_template, request
 import dropbox
 import io
 import pandas as pd
-import jinja2
 
 app = Flask(__name__)
 app.config["DEBUG"] = True
 
-token = "---"
+token = "---" # <---------- ENTER TOKEN HERE
 sheet_names = ['Essence', 'Strengths','Dreams','Design']
 
 
