@@ -25,7 +25,7 @@ def create_dbx():
         finally:
             return success
 
-    return True # dbx already exists and all is well
+    return True # dbx already exists
 
 
 # gets "about appreciative inquiry" blurb for top of page
@@ -89,10 +89,10 @@ def get_xls_in_folder(folder_name):
 # TODO: image format validation
 def get_image_links(folder_name):
     info = dbx.sharing_list_shared_links()
-    meta = info.links
+    meta = info.links # link to Dropbox file preview page
 
     links_list = []
-    for link in meta:
+    for link in meta: # alter url to point to image directly (not Dropbox preview page) 
         if link.path_lower.find(folder_name.lower()) != -1:
             img_url = link.url
             img_url = img_url.replace("dl=0","raw=1")
@@ -120,7 +120,7 @@ def read_data_into_df(folder_name, file_name):
 
 
 def df_tidy(df):
-    df = df.dropna(axis=0,thresh=2) #drop if 2+ columns empty - cannot drop all as phase is added to all rows
+    df = df.dropna(axis = 0,thresh = 2) #drop if 2+ columns empty - cannot drop all as phase is added to all rows
     df = df.fillna('')
     df = df.applymap(lambda s: s.capitalize() if type(s) == str else s) # capitalise first words only
 
