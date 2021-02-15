@@ -1,6 +1,6 @@
 # Appreciative Inquiry Interactive Session Reports
 
-A Flask webapp that reads data from Appreciative Inquiry sessions from the user's Dropbox and presents it in an interactive form using imagery of a tree, where each part of the tree represents a particular phase of the Inquiry.
+A Flask webapp that reads data from [Appreciative Inquiry](https://en.wikipedia.org/wiki/Appreciative_inquiry) sessions from the user's Dropbox and presents it in an interactive form using imagery of a tree, where each part of the tree represents a particular phase of the Inquiry.
 
 Space is also available for including photographs from the session, such as photos of Dreams craft projects.
 
@@ -19,8 +19,7 @@ To include images in the report, place them in the folder for their correspondin
 
 
 ### Languages
-* Python 3.8 (extraction and transformation of data)
-* [Jinja2](https://jinja.palletsprojects.com/en/2.11.x/) (a templating language for Python, used to insert data into html templates)
+* Python 3.8
+* [Jinja2](https://jinja.palletsprojects.com/en/2.11.x/) (a templating language for Python)
 * html & css
-* Javascript (very basic interactivity)
-
+* Javascript
