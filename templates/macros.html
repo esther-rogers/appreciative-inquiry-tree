@@ -3,11 +3,10 @@
     <div class="modal">
     <div class="modal-content">
     <span class="close">&times;</span>
-    {% set btn_class = "accordion" %}
-    <button class="{{btn_class}}">{{theme}}</button>
+    <button class="accordion">{{theme}}</button>
     <ul>
     {% for sub in theme_dict[theme] %}
-        {% if (sub != '') and (sub != theme) %} <!-- != theme doesn't work -->
+        {% if (sub != '') and (sub != theme) %}
             <li>{{sub}}</li>
         {% endif %}
     {% endfor %}
@@ -29,7 +28,6 @@
 
 
 <!-- Creates theme buttons and corresponding modals for Strengths items -->
-<!-- TODO: - check for blanks/sub-theme matches -->
 {% macro strengths_themes(theme_dict, values_dict) %}
 {% for theme in theme_dict %}
     {% set a_class = "btn modal-button Strengths" %}
@@ -38,7 +36,9 @@
     {% else %}
         {% set class = "trunk-item-left" %}
     {% endif %}
-   {{create_button(class, a_class, theme, theme_dict)}}
+    {% if theme != '' %}
+       {{create_button(class, a_class, theme, theme_dict)}}
+    {% endif %}
 {% endfor %}
 {% endmacro %}
 
@@ -49,4 +49,3 @@
   <a class="link-btn" href="/forest?tree={{filename}}">{{filename}}</a>
 {% endfor %}
 {% endmacro %}
-
