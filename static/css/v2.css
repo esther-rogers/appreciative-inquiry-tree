@@ -117,7 +117,7 @@ background: rgba(60, 179, 113, 0);
 }
 
 .sun {
-  background-image: url("https://drive.google.com/uc?id=1ipyHGSgdnfzopH3BjFWq1uI0Nm-OiaRd");
+  background-image: url("/static/images/sun.png");
   background-size: cover;
   background-size: 100% 100%;
   color: black;
@@ -126,7 +126,7 @@ background: rgba(60, 179, 113, 0);
 }
 
 .cloud {
-  background-image: url("https://drive.google.com/uc?id=1T4y2NVJ-03iSd2EyjTlWW1qA96UYkxEd");
+  background-image: url("/static/images/cloud.png");
   background-size: cover;
   background-size: 100% 100%;
   padding: 1rem;
@@ -138,7 +138,7 @@ background: rgba(60, 179, 113, 0);
 
 /* contains tree (branches & trunk) */
 .tree {
-  background-image: url("https://drive.google.com/uc?id=17kLOqaHGWcLX6kRneoctbyi8PHvgFtG2");
+  background-image: url("/static/images/tree.png");
   background-size: cover;
   background-size: 100% 100%;
   min-height:800px;
@@ -205,7 +205,7 @@ background: rgba(60, 179, 113, 0);
   max-width: 1200px;
   margin: 0 auto;
   display: grid;
-   background-image: url("https://drive.google.com/uc?id=1C2VA9AMcTpkronAp1z_xhGpg1FyGuY1K");
+  background-image: url("/static/images/ground.png");
   background-size: cover;
   min-height:200px;
   opacity: 0.9;
