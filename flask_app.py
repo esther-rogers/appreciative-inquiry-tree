@@ -131,20 +131,23 @@ def df_to_dict(df):
     df_tidy(df)
     full_dict = {}  # dict w phases as key
 
-    for phase in df.Phase.unique():
-        phase_df = df[df['Phase'] == phase]  # df for a single phase only
-        phase_df = df_tidy(phase_df)
-        temp_dict_themes = {}  # dict w themes as key
+    try:
+        for phase in df.Phase.unique():
+            phase_df = df[df['Phase'] == phase]  # df for a single phase only
+            phase_df = df_tidy(phase_df)
+            temp_dict_themes = {}  # dict w themes as key
 
-        for theme in phase_df.Themes.unique():
-            theme_df = phase_df[phase_df['Themes'] == theme]  # df for a single theme only
-            theme_df = df_tidy(theme_df)
-            subthemes_list = theme_df['Raw data'].to_list()
-            temp_dict_themes[theme] = subthemes_list
+            for theme in phase_df.Themes.unique():
+                theme_df = phase_df[phase_df['Themes'] == theme]  # df for a single theme only
+                theme_df = df_tidy(theme_df)
+                subthemes_list = theme_df['Raw data'].to_list()
+                temp_dict_themes[theme] = subthemes_list
 
-        full_dict[phase] = temp_dict_themes
+            full_dict[phase] = temp_dict_themes
 
-    return full_dict
+        return full_dict
+    except:
+        return render_template("error.html",error_text="Error reading from file: data not structured correctly. Check the template.xlsx file for requirements.")
 
 
 @app.route('/', methods=['GET'])
